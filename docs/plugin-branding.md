@@ -4,9 +4,9 @@
 
 **Name:** Dot Panel
 
-**Short description:** Your assistant’s touch-first panel for projects, decisions, calendar and usage.
+**Short description:** Touch dashboard for your dot
 
-**Full description:** Keep your assistant’s work in view. Dot Panel brings timestamped project updates, a Needs You decision queue, calendar snapshots and scoped usage limits into a personal touch-first dashboard. Answer ordinary three-choice questions, choose the modules that matter, and save separate portrait and landscape layouts. Light and dark themes keep it comfortable on a tablet or desktop. Your assistant prepares updates from sources you have authorized; the panel clearly shows snapshot freshness and calendar coverage.
+**Full description:** A free AGPL framework and agent skill collection for your own dot to create and maintain your private panel in ChatGPT Sites. Keep your assistant’s work in view. Dot Panel brings timestamped project updates, a Needs You decision queue, calendar snapshots and scoped usage limits into a personal touch-first dashboard. Answer ordinary yes/no and multiple-choice questions, choose the modules that matter, and save separate portrait and landscape layouts. Light and dark themes keep it comfortable on a tablet or desktop. Your assistant prepares updates from sources you have authorized; the panel clearly shows snapshot freshness and calendar coverage.
 
 **Icon:** `public/brand/favicon-180.png` (180 × 180 PNG). The editable original is `public/brand/favicon.svg`. The red dot in a near-black panel matches the existing original brand kit. No account-specific text or data is embedded.
 
@@ -14,14 +14,14 @@
 
 - Set up my Dot Panel with the projects and modules I choose
 - Refresh my panel from the sources I have connected
-- Add a three-choice decision to Needs You
+- Add an ordinary yes/no decision to Needs You
 - Show me when my calendar and usage were last checked
 
 These are proposed listing copy, not a platform-installed prompt menu.
 
 ## Setup checklist
 
-1. Connect the existing Site-provisioned plugin through the platform’s supported connection flow.
+1. Use the framework setup skill and supported Sites tools to create your own private panel, then connect its Site-provisioned plugin through the platform’s supported connection flow.
 2. Verify a read-only status call. Read current config before changing anything.
 3. Set the owner’s actual assistant name. Review modules, source references, links and timezone with the owner. Preserve existing initialized configuration.
 4. Read source apps using already-authorized tools, then store minimal snapshots with real timestamps and coverage. Calendar is read-only; no invitation or editing tools are provided.
@@ -35,7 +35,7 @@ See [the full setup protocol](agent-setup-protocol.md) and [the source repositor
 
 The existing hosted panel remains owner-private. User data is scoped to the authenticated owner; callback secrets stay server-side. Calendar and usage displays are snapshots rather than direct live account connections. Delivery retries are bounded and request-driven, and an accepted webhook is separate from an assistant acknowledgement. The public repository contains reusable source only.
 
-This document is product/setup information, not a privacy policy, legal agreement, marketplace approval or security certification. A broadly distributed deployment still needs its own authentication, access policy, operational owner and any required platform review/legal disclosures.
+This document is product/setup information, not a privacy policy, legal agreement, marketplace approval or security certification. Public distribution of the skills framework requires its own platform review and truthful prerequisite/privacy descriptions. Each private panel uses Sites-managed identity. No central hosted service or external auth provider is a prerequisite.
 
 ## Metadata actually under application control
 

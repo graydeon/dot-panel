@@ -1,0 +1,33 @@
+name: App checks
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  app:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Domain regression tests
+        run: npm test
+      - name: Widget starter contract
+        run: node scripts/test-template.mjs
+      - name: Synthetic migration and recovery rehearsal
+        run: node tests/recovery.mjs
+      - name: Workers crypto and authentication boundary
+        run: npm run test:runtime
+      - name: Type check and production bundle
+        run: npm run build
+      - name: Sites-only retained template build
+        run: npm run build:sites
+      - name: Documentation and source integrity
+        run: python3 scripts/check-docs.py

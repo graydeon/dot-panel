@@ -6,6 +6,7 @@
 
 [![Beta](https://img.shields.io/badge/release-v0.1.0--beta.1-F04452?style=for-the-badge)](https://github.com/graydeon/dot-panel/releases/tag/v0.1.0-beta.1)
 [![License](https://img.shields.io/badge/license-AGPL--3.0--only-A1A1AA?style=for-the-badge)](LICENSE)
+[![App checks](https://github.com/graydeon/dot-panel/actions/workflows/ci.yml/badge.svg)](https://github.com/graydeon/dot-panel/actions/workflows/ci.yml)
 [![Docs checks](https://github.com/graydeon/dot-panel/actions/workflows/docs.yml/badge.svg)](https://github.com/graydeon/dot-panel/actions/workflows/docs.yml)
 
 [↓ **Get the beta**](https://github.com/graydeon/dot-panel/releases/tag/v0.1.0-beta.1) · [⚙ **Setup**](docs/agent-setup-protocol.md) · [▦ **Widget skills**](agent-skills/README.md) · [⌘ **Source**](https://github.com/graydeon/dot-panel) · [♡ **Security**](SECURITY.md)
@@ -14,7 +15,7 @@
 
 ## Your assistant, in view
 
-A private, touch-first status panel for an AI assistant. Questions appear only while pending. Once an answer is saved, the panel returns to project status. The assistant's name is an owner setting; Dot Panel is the product name.
+A free, AGPL framework for your dot to create and personalize its own private touch dashboard in ChatGPT Sites, optionally linked in Spaces. Bundled setup, maintenance and widget skills guide the work; each owner keeps their own panel. Questions appear only while pending. Once an answer is saved, the panel returns to project status. The assistant's name is an owner setting; Dot Panel is the product name.
 
 > **Early beta:** reusable source is public; the existing hosted panel stays private. Fresh-user installation and end-to-end setup with a new owner's data have not been independently validated. Public catalog distribution is unverified. There is no universal one-click plugin install link.
 
@@ -22,7 +23,7 @@ A private, touch-first status panel for an AI assistant. Questions appear only w
 
 | Module | What you get |
 | --- | --- |
-| **Needs You** | Three-choice decisions in a queue and accessible modal. Later keeps a request pending; Dismiss removes it without answering. |
+| **Needs You** | Two-to-six-choice ordinary decisions in a queue and accessible modal. Later keeps a request pending; Dismiss removes it without answering. |
 | **Projects** | Timestamped status, chosen source modules, and honest empty states. |
 | **Calendar** | Today / Week cards and a Month / Week / Day dialog over saved snapshots, with timezone and coverage. |
 | **Usage** | Snapshot bars, reset dates, optional reset availability, and source timestamps. |
@@ -48,6 +49,14 @@ A private, touch-first status panel for an AI assistant. Questions appear only w
 
 This repository contains reusable source, not anyone's live dashboard, private links, data, credentials, or deployment history.
 
+See the [v1 readiness ledger](docs/v1-readiness.md) for verified checks and remaining gates.
+
+## Set up your own panel
+
+Start with [Framework installation](docs/framework-installation.md). Your dot needs the supported Sites tools and a workspace that can build the source. It creates a new private Site using the sanitized template, reuses Sites-managed sign-in and connects the private Site plugin provisioned for you. A one-time Install/Connect step and authorized answer-event subscription may need your action. No developer-operated service, subscription or external login provider is required by this architecture.
+
+The public installer package is still being verified; do not treat the beta source archive as an installable plugin. Skills guide available tools; they cannot create missing capabilities or bypass your account policy.
+
 ## Quickstart · local development
 
 Node.js 22.13+ (Node 24 recommended), React, TypeScript, Vite, Cloudflare Workers, and D1.
@@ -58,6 +67,8 @@ cd dot-panel
 npm ci
 npm test
 npm run test:runtime
+npm run test:template
+npm run test:recovery
 npm run build
 ```
 
@@ -74,42 +85,24 @@ Open the local URL printed by Wrangler. The local-only fixture identity is expli
 
 Briefing and other destinations are owner-scoped module links configured through the setup workflow. They are not compiled into the frontend.
 
-## Authentication: read before deployment
+## Runtime and authentication boundaries
 
-The public Worker **does not trust incoming identity headers**. It strips them and requires a deployment-owned `AUTHENTICATOR` service binding. Without that binding, data endpoints fail closed with HTTP 401.
+**User-owned Sites is the intended setup.** `worker/sites.ts` is the dedicated Sites entrypoint and uses the authenticated Site-scoped identity supplied by the hosting boundary. Sites manages the private plugin's OAuth. Build with `npm run build:sites`; the supported Sites workflow then registers the user's new private Site, adds logical `DB` and MCP capability metadata, applies migrations and publishes. Never bind this entrypoint directly to an unrestricted public Worker: its trusted headers are only trustworthy behind Sites.
 
-The authentication service receives `GET https://auth.internal/verify` with the original `Authorization` and `Cookie` headers and `x-original-url` / `x-original-method`. It must verify the browser session or OAuth token, enforce the deployment's access policy, and return:
+**Standalone development remains available.** `worker/index.ts` rejects client identity headers and requires a trusted `AUTHENTICATOR` binding for an independently hosted deployment. This optional boundary is not an installer prerequisite or a bundled OAuth service. Without verification, private data routes return 401; slow or invalid verification fails closed. Local fixture identity works only on localhost and must not be deployed.
 
-```json
-{"authenticated":true,"owner_id":"stable-verified-principal"}
-```
-
-Return a non-2xx response for rejected credentials. Never echo an unverified client-supplied identity. Use the same stable principal for a person's browser and MCP connections. Protect the authentication service itself as a private service binding, never an unauthenticated identity minting endpoint.
-
-This repository supplies the application and a fail-closed adapter contract, **not an OAuth provider or an authentication service**. Configure a trusted authentication provider/gateway before internet deployment or ChatGPT plugin installation. Do not expose the original application behind a proxy that blindly forwards user-controlled identity headers.
-
-`LOCAL_DEV_MODE` and `LOCAL_DEV_USER` work only on localhost URLs and are only for local fixtures. Never configure them as production variables.
-
-## Deployment
-
-1. Create your own D1 database and replace the placeholder database ID in `wrangler.jsonc`.
-2. Configure and bind your verified authentication service as `AUTHENTICATOR`.
-3. Apply schema migrations to your own database, then build and deploy using Wrangler.
-4. Configure MCP OAuth/resource access at your deployment gateway, then register `/mcp` with your client.
-5. Set the owner's dot name with `set_dot_display_name`; the app cannot read assistant profiles automatically.
-6. Add ordinary questions and factual project updates through the tools.
-
-No deploy command is run merely by cloning or testing this repository. No platform-specific private build scripts are included.
+Neither build command provisions hosting, grants access, installs plugins or copies existing personal data. Keep the generated Site identity and credentials outside reusable templates. Read [setup](docs/framework-installation.md) and [recovery](docs/operations.md) before changing an existing panel.
 
 ## Tools
 
 - `get_touch_status`: pending queue, compatible current-question fields, delivery state, overview, and owner dot name
 - `get_touch_answer`: exact historical answer and acknowledgement by event ID
-- `set_touch_question`: replace the current question with exactly three choices, using a version guard and request ID
-- `enqueue_touch_question`: add an independent three-choice ordinary decision
+- `set_touch_question`: replace the current question with two to six choices, using a version guard and request ID
+- `enqueue_touch_question`: add an independent ordinary decision with two to six choices
 - `cancel_touch_question`: cancel a specific queued revision without deleting history
 - `get_calendar_snapshot` / `update_calendar_snapshot`: read/store authorized calendar snapshots
 - `get_usage_snapshot` / `update_usage_snapshot`: read/store scoped usage snapshots and optional reset records
+- `get_panel_setup_status`: owner-scoped guided setup evidence and freshness; external connection tests remain required
 - `get_panel_config` / `update_panel_config`: versioned owner-reviewed source configuration
 - `get_panel_layout`: read saved geometry and current widget registry
 - `acknowledge_touch_answer`: explicitly acknowledge one event after handling it

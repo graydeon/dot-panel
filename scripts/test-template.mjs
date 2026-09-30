@@ -2,17 +2,16 @@
 import {build} from 'esbuild';
 import {mkdtemp, rm, writeFile} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
-import {join, resolve} from 'node:path';
+import {join} from 'node:path';
 import {spawnSync} from 'node:child_process';
 
-const directory = await mkdtemp(join(tmpdir(), 'dot-panel-tests-'));
+const directory = await mkdtemp(join(tmpdir(), 'dot-panel-template-'));
 try {
   const result = await build({
-    entryPoints: ['tests/verify.ts'], bundle: true, platform: 'node',
-    format: 'esm', alias: {'cloudflare:workers': resolve('tests/binding.ts')},
-    write: false,
+    entryPoints: ['agent-skills/template/snapshot-model.test.ts'],
+    bundle: true, platform: 'node', format: 'esm', write: false,
   });
-  const file = join(directory, 'verify.mjs');
+  const file = join(directory, 'template.mjs');
   await writeFile(file, result.outputFiles[0].text);
   const run = spawnSync(process.execPath, [file], {stdio: 'inherit'});
   if (run.error) throw run.error;

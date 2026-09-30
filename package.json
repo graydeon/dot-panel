@@ -12,10 +12,13 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "test": "node scripts/test.mjs",
-    "test:runtime": "node tests/runtime-crypto.mjs && node tests/runtime-auth.mjs",
+    "test:runtime": "node tests/runtime-crypto.mjs && node tests/runtime-auth.mjs && node tests/runtime-isolation.mjs && node tests/runtime-sites.mjs",
     "db:generate": "drizzle-kit generate",
     "worker:dev": "wrangler dev",
-    "deploy": "npm run build && wrangler deploy"
+    "deploy": "npm run build && wrangler deploy",
+    "test:template": "node scripts/test-template.mjs",
+    "test:recovery": "node tests/recovery.mjs",
+    "build:sites": "node scripts/build-sites.mjs"
   },
   "dependencies": {
     "react": "19.2.6",

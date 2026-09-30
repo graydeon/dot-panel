@@ -46,3 +46,7 @@ npm run build
 ```
 
 The starter test covers eight freshness/matching cases; it is not an end-to-end integration test. Add widget-specific owner isolation, conflict handling, backward-compatible config/layout, and rendering checks. In a browser verify minimum/large sizes, portrait/landscape, light/dark, touch/keyboard, focus recovery, accessible overflow/details, long text, empty and stale states, and no document scrolling. New migrations must preserve existing data and be tested on a synthetic old database. Run production migrations or publication only when separately authorized. Include changed source, synthetic tests, skills, and updated release manifest in the authorized export; exclude private fixtures, URLs, credentials, database state, build artifacts, and installed dependencies.
+
+## Set up and maintain the framework
+
+[setup-dot-panel](setup-dot-panel/SKILL.md) guides each dot through creating its owner's private Site and connecting its provisioned plugin. [maintain-dot-panel](maintain-dot-panel/SKILL.md) preserves that installation while updating or repairing it. These skills require available supported Sites tooling; they do not create account capabilities or grant access.
