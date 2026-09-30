@@ -1,0 +1,13 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+export type CalendarEvent={event_id:string,title:string,start:string,end:string,all_day:boolean,google_url?:string};
+export type CalendarSnapshot={calendar_name:string,timezone:string,range_start:string,range_end:string,source_synced_at:string,saved_at:string,events:CalendarEvent[]};
+export function validDate(value:unknown):value is string{return typeof value==='string'&&/^\d{4}-\d\d-\d\d$/.test(value)&&Number.isFinite(Date.parse(value+'T00:00:00Z'))&&new Date(value+'T00:00:00Z').toISOString().slice(0,10)===value;}
+export function addDays(day:string,amount:number){const d=new Date(day+'T12:00:00Z');d.setUTCDate(d.getUTCDate()+amount);return d.toISOString().slice(0,10);}
+export function dateInZone(value:Date|string,timezone:string){const parts=new Intl.DateTimeFormat('en-US',{timeZone:timezone,year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date(value));const get=(kind:string)=>parts.find(p=>p.type===kind)!.value;return `${get('year')}-${get('month')}-${get('day')}`;}
+export function weekStart(day:string){return addDays(day,-new Date(day+'T12:00:00Z').getUTCDay());}
+export function monthStart(day:string){return day.slice(0,7)+'-01';}
+export function moveMonth(day:string,amount:number){const d=new Date(monthStart(day)+'T12:00:00Z');d.setUTCMonth(d.getUTCMonth()+amount);return d.toISOString().slice(0,10);}
+export function monthDays(day:string){const start=weekStart(monthStart(day)),next=moveMonth(day,1);const count=Math.ceil((Date.parse(next)-Date.parse(start))/86400000/7)*7;return Array.from({length:count},(_,i)=>addDays(start,i));}
+export function covered(snapshot:CalendarSnapshot,day:string){return day>=snapshot.range_start&&day<snapshot.range_end;}
+export function eventsForDay(snapshot:CalendarSnapshot,day:string){return snapshot.events.filter(e=>{if(e.all_day)return e.start<=day&&e.end>day;const start=dateInZone(e.start,snapshot.timezone);const end=dateInZone(new Date(Date.parse(e.end)-1),snapshot.timezone);return start<=day&&end>=day;}).sort((a,b)=>Number(b.all_day)-Number(a.all_day)||(a.all_day?a.start.localeCompare(b.start):Date.parse(a.start)-Date.parse(b.start))||a.title.localeCompare(b.title));}
+export function eventTime(event:CalendarEvent,day:string,timezone:string){if(event.all_day)return 'All day';const format=(value:string)=>new Intl.DateTimeFormat('en-US',{timeZone:timezone,hour:'numeric',minute:'2-digit',timeZoneName:'short'}).format(new Date(value));const startDay=dateInZone(event.start,timezone),endDay=dateInZone(new Date(Date.parse(event.end)-1),timezone);return `${startDay<day?'Continues':format(event.start)} – ${endDay>day?'continues':format(event.end)}`;}

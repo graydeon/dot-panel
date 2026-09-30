@@ -10,6 +10,7 @@ Direct runtime dependencies:
 |---|---|
 | React | MIT |
 | React DOM | MIT |
+| Radix UI | MIT |
 | Drizzle ORM | Apache-2.0 |
 
 Build/test dependencies include TypeScript (Apache-2.0), Vite (MIT), the Vite React plugin (MIT), esbuild (MIT), Wrangler (MIT/Apache-2.0), Miniflare (MIT), Drizzle Kit (MIT), and the corresponding type packages. Consult each installed package's actual license for its complete terms and any transitive notices before distributing bundled binaries.

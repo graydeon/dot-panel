@@ -22,6 +22,34 @@
       "when": 1790750063029,
       "tag": "0002_famous_hannibal_king",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1790751254274,
+      "tag": "0003_nifty_stepford_cuckoos",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1790751613711,
+      "tag": "0004_organic_marvel_boy",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1790751845063,
+      "tag": "0005_soft_frog_thor",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "6",
+      "when": 1790753635386,
+      "tag": "0006_romantic_lady_bullseye",
+      "breakpoints": true
     }
   ]
 }

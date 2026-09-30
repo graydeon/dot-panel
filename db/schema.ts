@@ -1,4 +1,5 @@
-import { sqliteTable, text, integer, uniqueIndex } from 'drizzle-orm/sqlite-core';
+// SPDX-License-Identifier: AGPL-3.0-only
+import { sqliteTable, text, integer, uniqueIndex, primaryKey } from 'drizzle-orm/sqlite-core';
 export const questions = sqliteTable('questions', {
  owner:text('owner').primaryKey(), id:text('id').notNull(), version:integer('version').notNull(), question:text('question').notNull(), choices:text('choices').notNull(), expires:text('expires').notNull()
 });
@@ -17,3 +18,16 @@ export const statusUpdates=sqliteTable('status_updates',{
 export const ownerSettings=sqliteTable('owner_settings',{
  owner:text('owner').primaryKey(), dotDisplayName:text('dot_display_name').notNull(), updatedAt:text('updated_at').notNull()
 });
+export const calendarSnapshots=sqliteTable('calendar_snapshots',{
+ owner:text('owner').primaryKey(), calendarName:text('calendar_name').notNull(), timezone:text('timezone').notNull(), rangeStart:text('range_start').notNull(), rangeEnd:text('range_end').notNull(), sourceSyncedAt:text('source_synced_at').notNull(), savedAt:text('saved_at').notNull(), events:text('events').notNull()
+});
+export const panelConfigs=sqliteTable('panel_configs',{
+ owner:text('owner').primaryKey(), version:integer('version').notNull(), modules:text('modules').notNull(), updatedAt:text('updated_at').notNull()
+});
+
+export const questionQueue=sqliteTable('question_queue',{
+ owner:text('owner').notNull(), id:text('id').notNull(), version:integer('version').notNull(), question:text('question').notNull(), choices:text('choices').notNull(), expires:text('expires').notNull(), created:text('created').notNull(), status:text('status').notNull()
+},t=>[primaryKey({columns:[t.owner,t.id]})]);
+export const queueImports=sqliteTable('queue_imports',{owner:text('owner').primaryKey(), importedAt:text('imported_at').notNull()});
+export const usageSnapshots=sqliteTable('usage_snapshots',{owner:text('owner').primaryKey(), source:text('source').notNull(), fetchedAt:text('fetched_at').notNull(), savedAt:text('saved_at').notNull(), payload:text('payload').notNull()});
+export const ownerLayouts=sqliteTable('owner_layouts',{owner:text('owner').primaryKey(),version:integer('version').notNull(),layouts:text('layouts').notNull(),previousLayouts:text('previous_layouts'),updatedAt:text('updated_at').notNull()});
