@@ -121,7 +121,7 @@
     },
     {
       "path": "docs/v1-readiness.md",
-      "sha256": "9f5cacf9e96f42649bd7f5af0ab62b62a93245a1293367acbc078ab97b1e04bc"
+      "sha256": "073a3cccb9d35d668f0e5bad00906db58d95ccfd99ff2677842ece3117f0c318"
     },
     {
       "path": "drizzle.config.ts",
