@@ -19,6 +19,8 @@ jobs:
       - run: npm ci
       - name: Dependency advisory check
         run: npm audit --audit-level=moderate
+      - name: Optional local usage tracker regressions
+        run: npm run test:usage
       - name: Domain regression tests
         run: npm test
       - name: Widget starter contract

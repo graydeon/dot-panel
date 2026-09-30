@@ -18,7 +18,8 @@
     "deploy": "npm run build && wrangler deploy",
     "test:template": "node scripts/test-template.mjs",
     "test:recovery": "node tests/recovery.mjs",
-    "build:sites": "node scripts/build-sites.mjs"
+    "build:sites": "node scripts/build-sites.mjs",
+    "test:usage": "python3 -m unittest discover -s tests -p \"test_usage_tracker.py\" -v"
   },
   "dependencies": {
     "drizzle-orm": "0.45.2",

@@ -26,7 +26,7 @@ Widget model: eight starter assertions. Recovery: seven migrations and two synth
 
 ## Honesty and remaining work
 
-The personal usage helper remains a private standalone process, not a universal built-in feed. Snapshots do not establish live connector access. Request-driven delivery does not promise closed-page autonomous retries. Skills cannot invoke unavailable APIs or bypass account policy/required confirmations. Installing the framework does not automatically connect a private Site or authorize a subscription.
+An optional portable local usage tracker and management skill are now bundled in source. It uses existing Codex CLI sign-in and explicit panel-tool selection; installation does not launch it, add credentials or enable reboot startup. The original personal helper remains separate and untouched. Synthetic tracker checks establish normalization/lifecycle boundaries, not independent-user authenticated installation or universal CLI bridge availability. Snapshots do not establish live connector access. Request-driven delivery does not promise closed-page autonomous retries. Skills cannot invoke unavailable APIs or bypass account policy/required confirmations. Installing the framework does not automatically connect a private Site or authorize a subscription.
 
 The proposed roadmap's independent setup, routing, device, recovery, extension and seven-day/three-owner pilot gates remain open until evidence is recorded. Do not shorten those gates to meet a clock deadline. Complete and verify the corrected code/setup flow before packaging a tested candidate; public release still follows evidence review and external directory approval.
 

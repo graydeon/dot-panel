@@ -45,3 +45,7 @@ With the user's awareness, enqueue one uniquely identified harmless preference t
 ## Handoff truthfully
 
 Report separately: private deployment, plugin connection/read-only call, reviewed configuration, each feed's observation/refresh status, subscription and actual answer delivery, and device checks. Say which external tests were not run. Save enough private recovery context to resume the same installation, with no credentials. Do not call installation complete while managed-runtime identity compatibility or the promised event path is unverified. See [framework installation](../../docs/framework-installation.md).
+
+## Optional local usage tracker
+
+If the owner requests automatic usage snapshots, use [manage-dot-panel-usage](../manage-dot-panel-usage/SKILL.md) and its retained helper. Check existing local Codex CLI capability and the exact owner panel first. Installation does not start a background process or authorize new credentials. The helper is optional; do not block the core panel when local account/tool access is unavailable. Obtain authorization for background tracking, and report no reboot autostart by default.

@@ -16,7 +16,8 @@
     "synthetic_migration_recovery": "passed_7_migrations_2_owners",
     "production_dependency_advisories": 0,
     "full_dependency_advisories": 0,
-    "clean_install_and_migration_generation": "passed"
+    "clean_install_and_migration_generation": "passed",
+    "optional_usage_tracker_synthetic_tests": 24
   },
   "files": [
     {
@@ -29,7 +30,7 @@
     },
     {
       "path": ".github/workflows/ci.yml",
-      "sha256": "e30cf7f663bd1d6c9048fba46ac02bf3cf2eb7fde5ac689914e236aa9a280508"
+      "sha256": "7670a5d484f086fec092016c4ff90d6e8036532561f46a9354b92b068decfc88"
     },
     {
       "path": ".github/workflows/docs.yml",
@@ -37,7 +38,7 @@
     },
     {
       "path": ".gitignore",
-      "sha256": "d5dd197ef3ce3eea617a8e03a114e35c34ceb5178ef1d254306a697da7609925"
+      "sha256": "b7de2550042b4b0012b1dc46e8ea9073cb3373aade3724fbdcaaf4d8b501f65a"
     },
     {
       "path": "LICENSE",
@@ -45,7 +46,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "721215fafd457ab6e8c8a7b944842bbb24e222ba01b17c3c3f26fadba816c69e"
+      "sha256": "1f85b3d15cf2914c5d7a5f1f4bf7f0ffc8777705ecc50ea2420895cc0f0ffe60"
     },
     {
       "path": "SECURITY.md",
@@ -72,8 +73,12 @@
       "sha256": "7c6e019ec48fb07d3abb5e1c72b6499169bccda6dbc36e2bd7ed34e7eef08e1a"
     },
     {
+      "path": "agent-skills/manage-dot-panel-usage/SKILL.md",
+      "sha256": "bf0f3c8ef26051df961d68b25285a3652ed4e69de02773fc8a067956b361e99a"
+    },
+    {
       "path": "agent-skills/setup-dot-panel/SKILL.md",
-      "sha256": "b72e99102e54d875e116b1581fbf47ef58c74da3fc4bc62d6ebfacec9952a694"
+      "sha256": "19fa63607ad5bfa0f3e2a4da2afb27e1cacbca8b7589b0b097b010be1979da26"
     },
     {
       "path": "agent-skills/template/manifest.ts",
@@ -109,7 +114,7 @@
     },
     {
       "path": "docs/framework-installation.md",
-      "sha256": "dee784f08c1fe72a89aa1f795d561264e49ccdf50ca798464327ae59224ab79b"
+      "sha256": "cfa20f657f98b2e85233e4ef27b384cf7a61b89dbb388053a320af7314f6060d"
     },
     {
       "path": "docs/operations.md",
@@ -120,8 +125,12 @@
       "sha256": "775a1c53d054dbb2db93bce9a8c7123906dc8e4f63e04867f06b8f0bcf72aa30"
     },
     {
+      "path": "docs/usage-tracker.md",
+      "sha256": "32546b590a396f4c712fed780743be7f58a5ff9d6bf2d2363f9c4acbb0ec1985"
+    },
+    {
       "path": "docs/v1-readiness.md",
-      "sha256": "073a3cccb9d35d668f0e5bad00906db58d95ccfd99ff2677842ece3117f0c318"
+      "sha256": "ecf684e1df6d3be29d1c450edadcfa225e6f4088a359fe60b0924ba99fd946a5"
     },
     {
       "path": "drizzle.config.ts",
@@ -273,7 +282,7 @@
     },
     {
       "path": "package.json",
-      "sha256": "d3067fbb264b42c1f77f672043492ab63d431817462a9ed759ac2dc32bd07172"
+      "sha256": "e5c94fcff3048aaf9a632d0e56319c1db176588d44e93fb9d777e0c04778eb80"
     },
     {
       "path": "public/brand/README.md",
@@ -372,6 +381,10 @@
       "sha256": "8b39339fbb1ac887e4d51e0122db94503f893ebd2d8f1167c4982fc7b87ba395"
     },
     {
+      "path": "scripts/usage-tracker.py",
+      "sha256": "90bf429f81fc671e03bbf385e0e9cf11696634f40346a19ae4df2d8cb69e7eeb"
+    },
+    {
       "path": "src/Panel.tsx",
       "sha256": "f3c928f8d45f49213a019fa32a64c4da32fa1c7731bc17efdb156dc33c23c092"
     },
@@ -430,6 +443,10 @@
     {
       "path": "tests/runtime-sites.mjs",
       "sha256": "766f80fe250537bc4783f16071294a40730e39ad5812ebeec3a03f78a3891c44"
+    },
+    {
+      "path": "tests/test_usage_tracker.py",
+      "sha256": "9464aa40d30035601a207895e80670fa19b875cde6a014f28da5e1b3edf7fa7c"
     },
     {
       "path": "tests/verify.ts",

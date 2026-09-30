@@ -151,3 +151,7 @@ Dot Panel application code and original brand assets are licensed under **GNU AG
 ## Plugin branding
 
 See [catalog copy, icon and connection/setup guidance](docs/plugin-branding.md). MCP metadata and tool titles are application-controlled; catalog listing fields may require a separate supported platform editor.
+
+### Optional local usage tracking
+
+Bundle-ready [local usage tracker and setup guide](docs/usage-tracker.md) supports an existing ChatGPT-authenticated Codex CLI and explicitly connected private panel. It runs only on the owner’s computer with permission; installing a skill does not start an always-on process. The [management skill](agent-skills/manage-dot-panel-usage/SKILL.md) covers setup, status, stopping and removal. Missing local tooling leaves usage optional/manual.
