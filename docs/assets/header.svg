@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+<title id="title">Dot Panel — your assistant, in view</title><desc id="desc">Original black and red Dot Panel banner with an abstract dashboard illustration. No owner data.</desc>
+<rect width="1200" height="360" rx="24" fill="#0A0A0B"/>
+<path d="M0 310H1200M650 0V360" stroke="#222226"/>
+<rect x="58" y="60" width="64" height="64" rx="15" fill="none" stroke="#F04452" stroke-width="5"/><circle cx="78" cy="92" r="7" fill="#F04452"/><path d="M95 84h16M95 100h16" stroke="#F7F7F8" stroke-width="5" stroke-linecap="round"/>
+<text x="58" y="198" fill="#F7F7F8" font-family="Arial, sans-serif" font-size="72" font-weight="700">Dot Panel</text>
+<text x="61" y="244" fill="#A1A1AA" font-family="Arial, sans-serif" font-size="24">Your assistant, in view.</text>
+<rect x="61" y="281" width="102" height="30" rx="15" fill="#F04452"/><text x="112" y="302" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#0A0A0B">EARLY BETA</text>
+<g fill="#151518" stroke="#333338"><rect x="708" y="54" width="430" height="114" rx="18"/><rect x="708" y="184" width="206" height="120" rx="18"/><rect x="930" y="184" width="208" height="120" rx="18"/></g>
+<g font-family="Arial, sans-serif" fill="#F7F7F8" font-size="18"><text x="733" y="90">Projects</text><text x="733" y="221">Needs You</text><text x="955" y="221">This week</text></g>
+<g stroke="#A1A1AA" stroke-width="6" stroke-linecap="round"><path d="M737 117h241M737 140h170"/><path d="M956 247h110M956 269h76"/></g>
+<g fill="#F04452"><circle cx="1104" cy="85" r="7"/><rect x="733" y="244" width="42" height="32" rx="8"/><rect x="784" y="244" width="42" height="32" rx="8"/><rect x="835" y="244" width="42" height="32" rx="8"/></g></svg>

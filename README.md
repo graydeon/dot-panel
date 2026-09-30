@@ -1,8 +1,36 @@
-# Dot Panel
+<div align="center">
+
+<img src="docs/assets/header.svg" alt="Dot Panel — your assistant, in view" width="960" />
+
+**Projects in view. Decisions within reach.**
+
+[![Beta](https://img.shields.io/badge/release-v0.1.0--beta.1-F04452?style=for-the-badge)](https://github.com/graydeon/dot-panel/releases/tag/v0.1.0-beta.1)
+[![License](https://img.shields.io/badge/license-AGPL--3.0--only-A1A1AA?style=for-the-badge)](LICENSE)
+[![Docs checks](https://github.com/graydeon/dot-panel/actions/workflows/docs.yml/badge.svg)](https://github.com/graydeon/dot-panel/actions/workflows/docs.yml)
+
+[↓ **Get the beta**](https://github.com/graydeon/dot-panel/releases/tag/v0.1.0-beta.1) · [⚙ **Setup**](docs/agent-setup-protocol.md) · [▦ **Widget skills**](agent-skills/README.md) · [⌘ **Source**](https://github.com/graydeon/dot-panel) · [♡ **Security**](SECURITY.md)
+
+</div>
+
+## Your assistant, in view
 
 A private, touch-first status panel for an AI assistant. Questions appear only while pending. Once an answer is saved, the panel returns to project status. The assistant's name is an owner setting; Dot Panel is the product name.
 
-## Features
+> **Early beta:** reusable source is public; the existing hosted panel stays private. Fresh-user installation and end-to-end setup with a new owner's data have not been independently validated. Public catalog distribution is unverified. There is no universal one-click plugin install link.
+
+## In the panel
+
+| Module | What you get |
+| --- | --- |
+| **Needs You** | Three-choice decisions in a queue and accessible modal. Later keeps a request pending; Dismiss removes it without answering. |
+| **Projects** | Timestamped status, chosen source modules, and honest empty states. |
+| **Calendar** | Today / Week cards and a Month / Week / Day dialog over saved snapshots, with timezone and coverage. |
+| **Usage** | Snapshot bars, reset dates, optional reset availability, and source timestamps. |
+| **Your layout** | Portrait and landscape layouts, templates, paging, touch controls, Save / Cancel, and restore. |
+
+<details>
+<summary><strong>Explore all features</strong></summary>
+
 
 - Independent Needs You queue with centered touch-answer dialogs, Later, persistent Dismiss, and exact-event history
 - Owner-reviewed project/source modules with timestamps and honest empty states
@@ -16,13 +44,17 @@ A private, touch-first status panel for an AI assistant. Questions appear only w
 - Agent-led first-run setup protocol and source-edit widget creation/editing skills
 - Original editable SVG brand kit
 
+</details>
+
 This repository contains reusable source, not anyone's live dashboard, private links, data, credentials, or deployment history.
 
-## Stack and commands
+## Quickstart · local development
 
 Node.js 22.13+ (Node 24 recommended), React, TypeScript, Vite, Cloudflare Workers, and D1.
 
 ```sh
+git clone https://github.com/graydeon/dot-panel.git
+cd dot-panel
 npm ci
 npm test
 npm run test:runtime
@@ -100,6 +132,18 @@ Retries are request-driven: the open page checks periodically, and the retry too
 Before acting on a received event, retrieve that exact event ID and check whether it was already acknowledged. Never treat a tap as approval for payments, permissions, credentials, or other consequential actions.
 
 Layout writes use the authenticated same-origin `/api/layout` endpoint with layout and module-version guards; there is no MCP layout writer. Read [the setup protocol](docs/agent-setup-protocol.md) and [widget skills](agent-skills/README.md) before extending the app. Calendar and usage are snapshots, not direct server-side Google/account adapters. Scheduled ingestion requires separately authorized connected tools.
+
+## Beta boundaries
+
+- **Bring your deployment:** your own D1 database and a trusted `AUTHENTICATOR` service binding are required. Unconfigured data endpoints fail closed.
+- **Bring authorized sources:** calendar, project and usage feeds need authorized integrations or a helper to write snapshots. The usage helper is not universally built in to every assistant environment.
+- **Snapshots have limits:** observation timestamps and calendar coverage describe saved data; they do not promise live account access.
+- **Delivery is asynchronous:** callback receipt and assistant acknowledgement are separate. Bounded, request-driven retries do not guarantee delivery while the panel is closed.
+- **Setup still needs validation:** source tests do not establish a fresh-user install, own-data setup, public catalog availability, or marketplace approval.
+
+## Build your own widgets
+
+Start with the [widget authoring bundle](agent-skills/README.md): [create](agent-skills/create-dot-panel-widget/SKILL.md) or [edit](agent-skills/edit-dot-panel-widget/SKILL.md) a statically imported widget. Typed templates and snapshot model tests help preserve owner scope, freshness, and saved layouts. This is a source-editing workflow; it does not install arbitrary executable widgets at runtime.
 
 ## Development and security
 

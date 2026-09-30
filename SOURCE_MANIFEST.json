@@ -22,6 +22,10 @@
       "sha256": "89157cdeb6aef767923b696dce7389af2ebacc0f34b8184e07e200e836cafeab"
     },
     {
+      "path": ".github/workflows/docs.yml",
+      "sha256": "8234aa03b78e004b86dba6bcab7b0a32f0db29dcc76e44580e4d1600f6750f04"
+    },
+    {
       "path": ".gitignore",
       "sha256": "d5dd197ef3ce3eea617a8e03a114e35c34ceb5178ef1d254306a697da7609925"
     },
@@ -31,7 +35,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "114df4c5592a561427b73c0ef1599b10e148510fa3ed05b9dc3f741b2596648b"
+      "sha256": "5c43b53a4019f3669cebc08f67bb51a405588d466d4b07d1922847c5fd3ddda0"
     },
     {
       "path": "SECURITY.md",
@@ -82,8 +86,16 @@
       "sha256": "4e863c87ffa9ca7364d27154de70f66e2026eb9afcc46c55d590966b5bd0313c"
     },
     {
+      "path": "docs/assets/header.svg",
+      "sha256": "c428be34a6481a476368681058ff11e8059c4a26704a1321feccfb1a2dff0375"
+    },
+    {
       "path": "docs/plugin-branding.md",
       "sha256": "93ac771e9fa8e762f857bc41bb585d7b5cf48d7213a1f4139c2fb7ff1424ca47"
+    },
+    {
+      "path": "drizzle.config.ts",
+      "sha256": "8f0b0441ef2d967c839418715a2cbb051c0338dc156d989895c03ccbc81d4cf6"
     },
     {
       "path": "drizzle/0000_aberrant_imperial_guard.sql",
@@ -144,10 +156,6 @@
     {
       "path": "drizzle/meta/_journal.json",
       "sha256": "ee298b43b274ecac18aec697ff135b6c0796e1974ea3fab1ab0c31d7dd5d2468"
-    },
-    {
-      "path": "drizzle.config.ts",
-      "sha256": "8f0b0441ef2d967c839418715a2cbb051c0338dc156d989895c03ccbc81d4cf6"
     },
     {
       "path": "index.html",
@@ -308,6 +316,10 @@
     {
       "path": "public/brand/wordmark-light.svg",
       "sha256": "03c07e48a416ae30cba40d7608d41074a6f8c374e2d37aa0ea987fcd96343147"
+    },
+    {
+      "path": "scripts/check-docs.py",
+      "sha256": "0876b5d9b6454b7cf137386e7490ad2d65321d5513c0746a119549027b9e4b85"
     },
     {
       "path": "scripts/test.mjs",
