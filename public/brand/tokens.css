@@ -1,0 +1,16 @@
+:root {
+  --dp-bg: #0A0A0B;
+  --dp-surface: #161619;
+  --dp-surface-raised: #222226;
+  --dp-border: #35353C;
+  --dp-text: #F7F7F8;
+  --dp-muted: #A1A1AA;
+  --dp-accent: #F04452;
+  --dp-on-accent: #0A0A0B;
+  --dp-accent-deep: #C62838;
+  --dp-on-accent-deep: #F7F7F8;
+  --dp-radius-control: 14px;
+  --dp-radius-panel: 22px;
+  --dp-touch-min: 48px;
+  --dp-font: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}

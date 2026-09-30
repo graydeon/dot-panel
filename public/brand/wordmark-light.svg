@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="208" height="32" viewBox="0 0 208 32" role="img" aria-label="Dot Panel">
+  <title>Dot Panel</title>
+  <rect x="3" y="3" width="26" height="26" rx="6" fill="none" stroke="#C62838" stroke-width="2.5"/>
+  <circle cx="11" cy="16" r="3" fill="#C62838"/>
+  <path d="M18 12.5h5M18 19.5h5" fill="none" stroke="#0A0A0B" stroke-width="2.5" stroke-linecap="round"/>
+  <g fill="none" stroke="#0A0A0B" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M44 8h4.5C59 8 59 24 48.5 24H44Z"/>
+    <rect x="64" y="8" width="12" height="16" rx="6"/>
+    <path d="M83 8h13m-6.5 0v16M111 24V8h6a4.5 4.5 0 0 1 0 9h-6M131 24l6-16 6 16m-10-5h8M151 24V8l12 16V8M183 8h-12v16h12m-12-8h10M191 8v16h12"/>
+  </g>
+</svg>

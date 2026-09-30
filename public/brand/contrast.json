@@ -1,0 +1,38 @@
+[
+  {
+    "usage": "Primary text",
+    "foreground": "#F7F7F8",
+    "background": "#0A0A0B",
+    "ratio": 18.48
+  },
+  {
+    "usage": "Muted text",
+    "foreground": "#A1A1AA",
+    "background": "#0A0A0B",
+    "ratio": 7.72
+  },
+  {
+    "usage": "Red action with dark text",
+    "foreground": "#0A0A0B",
+    "background": "#F04452",
+    "ratio": 5.33
+  },
+  {
+    "usage": "Deep-red action with light text",
+    "foreground": "#F7F7F8",
+    "background": "#C62838",
+    "ratio": 5.21
+  },
+  {
+    "usage": "Accent against raised surface",
+    "foreground": "#F04452",
+    "background": "#222226",
+    "ratio": 4.27
+  },
+  {
+    "usage": "Muted against raised surface",
+    "foreground": "#A1A1AA",
+    "background": "#222226",
+    "ratio": 6.18
+  }
+]

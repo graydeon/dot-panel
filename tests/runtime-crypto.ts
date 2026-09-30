@@ -1,0 +1,3 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+import {signature,signedPost} from '../lib/events';
+export default {async fetch(){try{const secret='whsec_'+btoa('01234567890123456789012345678901');const sig=await signature(secret,'fixture','123','{}');await signedPost({id:'fixture',url:'https://connectors.api.openai.com/fixture',secret,old_secret:null,rotate_until:null},'verify_fixture',{type:'verification',challenge:'fixture'},async (_u,init)=>{new Request('https://connectors.api.openai.com/fixture',init);return Response.json({challenge:'fixture'});});return Response.json({ok:true,signature_length:sig.length});}catch(e){return Response.json({error:String(e)},{status:500});}}};

@@ -1,0 +1,24 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+import { env } from 'cloudflare:workers';
+export function database(): D1Database { if(!env.DB) throw new Error('Storage unavailable'); return env.DB; }
+export type Question={owner:string,id:string,version:number,question:string,choices:string,expires:string};
+export type Answer={event_id:string,owner:string,question_id:string,version:number,submission_id:string,choice_id:string,label:string,question:string,created:string,acknowledged:string|null};
+export type Subscription={id:string,owner:string,url:string,secret:string,old_secret:string|null,rotate_until:string|null,question_id:string|null,expires:string};
+export const now=()=>new Date().toISOString();
+export async function current(db:D1Database,owner:string){return db.prepare('SELECT * FROM questions WHERE owner=?').bind(owner).first<Question>();}
+export async function seed(db:D1Database,owner:string){await db.prepare('INSERT OR IGNORE INTO questions (owner,id,version,question,choices,expires) VALUES (?,?,?,?,?,?)').bind(owner,crypto.randomUUID(),1,'How would you like to start?',JSON.stringify([{id:'focus',label:'A little focus'},{id:'ideas',label:'Fresh ideas'},{id:'quiet',label:'A quiet moment'}]),new Date(Date.now()+7*86400000).toISOString()).run();}
+export async function state(db:D1Database,owner:string){const q=await current(db,owner); const a=q?await db.prepare('SELECT * FROM answers WHERE owner=? AND question_id=? AND version=?').bind(owner,q.id,q.version).first<Answer>():null;const delivery=a?await db.prepare('SELECT status,attempts,accepted,last_error FROM deliveries WHERE owner=? AND event_id=?').bind(owner,a.event_id).all():{results:[]};const sub=await db.prepare('SELECT count(*) AS count FROM subscriptions WHERE owner=? AND expires>?').bind(owner,now()).first<{count:number}>(); return {question:q?{id:q.id,version:q.version,text:q.question,choices:JSON.parse(q.choices),expires:q.expires}:null,answer:a?{event_id:a.event_id,choice_id:a.choice_id,label:a.label,saved_at:a.created,acknowledged_at:a.acknowledged}:null,delivery:delivery.results,connected:!!sub?.count,retry_policy:'Pending deliveries retry while this page is open or the retry tool is called, up to 8 attempts. No background retry when the page is closed.'};}
+export async function saveAnswer(db:D1Database,owner:string,input:{question_id:string,version:number,choice_id:string,submission_id:string}){
+ if(!input || typeof input.submission_id!=='string'||! /^[a-zA-Z0-9_-]{8,100}$/.test(input.submission_id)) throw new Error('Invalid submission');
+ const old=await db.prepare('SELECT * FROM answers WHERE owner=? AND submission_id=?').bind(owner,input.submission_id).first<Answer>();
+ if(old){if(old.question_id!==input.question_id||old.version!==input.version||old.choice_id!==input.choice_id)throw new Error('Submission ID already used');return old;}
+ const q=await current(db,owner);if(!q||q.id!==input.question_id||q.version!==input.version||q.expires<=now())throw new Error('This question has changed or expired. Refresh to see the current question.');
+ const choice=JSON.parse(q.choices).find((c:{id:string})=>c.id===input.choice_id);if(!choice)throw new Error('Invalid choice');
+ const id=crypto.randomUUID(),time=now();
+ // Conditional insert plus fan-out outbox in one D1 transaction. Unique owner/question/version prevents races.
+ await db.batch([
+ db.prepare('INSERT OR IGNORE INTO answers (event_id,owner,question_id,version,submission_id,choice_id,label,question,created) SELECT ?,owner,id,version,?,?,?,?,? FROM questions WHERE owner=? AND id=? AND version=? AND expires>?').bind(id,input.submission_id,input.choice_id,choice.label,q.question,time,owner,q.id,q.version,time),
+ db.prepare("INSERT OR IGNORE INTO deliveries (id,owner,event_id,subscription_id,status,attempts,next_attempt) SELECT ? || ':' || s.id,s.owner,?,s.id,'pending',0,? FROM subscriptions s JOIN answers a ON a.event_id=? AND a.owner=s.owner WHERE s.owner=? AND s.expires>? AND (s.question_id IS NULL OR s.question_id=?)").bind(id,id,time,id,owner,time,q.id)
+ ]);
+ const answer=await db.prepare('SELECT * FROM answers WHERE owner=? AND question_id=? AND version=?').bind(owner,q.id,q.version).first<Answer>();if(!answer)throw new Error('This question changed while saving. Refresh and try again.');if(answer.choice_id!==input.choice_id)throw new Error('An answer was already saved for this question.'); return answer;
+}

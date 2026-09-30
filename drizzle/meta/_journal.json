@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1790747722852,
+      "tag": "0000_aberrant_imperial_guard",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1790748601326,
+      "tag": "0001_parched_wrecker",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1790750063029,
+      "tag": "0002_famous_hannibal_king",
+      "breakpoints": true
+    }
+  ]
+}
