@@ -155,3 +155,5 @@ See [catalog copy, icon and connection/setup guidance](docs/plugin-branding.md).
 ### Optional local usage tracking
 
 Bundle-ready [local usage tracker and setup guide](docs/usage-tracker.md) supports an existing ChatGPT-authenticated Codex CLI and explicitly connected private panel. It runs only on the owner’s computer with permission; installing a skill does not start an always-on process. The [management skill](agent-skills/manage-dot-panel-usage/SKILL.md) covers setup, status, stopping and removal. Missing local tooling leaves usage optional/manual.
+
+The [skills framework release candidate](docs/package-candidate.md) includes portable package tooling and exact-bundle evidence. It remains a candidate awaiting installed-user and platform validation.

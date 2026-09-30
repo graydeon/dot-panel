@@ -17,7 +17,8 @@
     "production_dependency_advisories": 0,
     "full_dependency_advisories": 0,
     "clean_install_and_migration_generation": "passed",
-    "optional_usage_tracker_synthetic_tests": 24
+    "optional_usage_tracker_synthetic_tests": 24,
+    "portable_candidate_package": "schema_paths_links_hashes_privacy_reproducibility_passed"
   },
   "files": [
     {
@@ -37,6 +38,10 @@
       "sha256": "8234aa03b78e004b86dba6bcab7b0a32f0db29dcc76e44580e4d1600f6750f04"
     },
     {
+      "path": ".github/workflows/package.yml",
+      "sha256": "85673792706443fba8b33e239d73983b482719ead31506f0d752401fad81868c"
+    },
+    {
       "path": ".gitignore",
       "sha256": "b7de2550042b4b0012b1dc46e8ea9073cb3373aade3724fbdcaaf4d8b501f65a"
     },
@@ -46,7 +51,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "1f85b3d15cf2914c5d7a5f1f4bf7f0ffc8777705ecc50ea2420895cc0f0ffe60"
+      "sha256": "f028bfdf7600a0f45304f3406942ec8ef01ab413045b36d77819e174f66188c1"
     },
     {
       "path": "SECURITY.md",
@@ -121,8 +126,16 @@
       "sha256": "27143b40a9027cbeb19d08ef7bb2ca57f5069a58d185677fcad94f918ebc31f0"
     },
     {
+      "path": "docs/package-candidate.md",
+      "sha256": "087f916075a4cd7834c158a9c52e4a267606346ffc9c2bf27cca14a25408ad96"
+    },
+    {
       "path": "docs/plugin-branding.md",
       "sha256": "775a1c53d054dbb2db93bce9a8c7123906dc8e4f63e04867f06b8f0bcf72aa30"
+    },
+    {
+      "path": "docs/privacy.md",
+      "sha256": "4beca37ee4552cf7bafde2e75b2eb00fbde90d61771206c389bbb34ceb1cccce"
     },
     {
       "path": "docs/usage-tracker.md",
@@ -285,6 +298,22 @@
       "sha256": "e5c94fcff3048aaf9a632d0e56319c1db176588d44e93fb9d777e0c04778eb80"
     },
     {
+      "path": "packaging/INSTALL.md",
+      "sha256": "28cd57156812a5d685fa52e6494e0f7b8007a482584ed1e875b1e824af8367ea"
+    },
+    {
+      "path": "packaging/plugin.json",
+      "sha256": "cda0fed5a5fac0dbea122bd3f1374f3e30fbec5c39599cc7367331c4af0abf28"
+    },
+    {
+      "path": "packaging/plugin.schema.json",
+      "sha256": "0a4aad95ce337878ad38802ebf0daa3fde76abe3f65400c86bcbb1ec0b3ab883"
+    },
+    {
+      "path": "packaging/validation-rc.1.json",
+      "sha256": "51b68da104591810c2efb31560019a3f6b56550df00324cc141195b8d63f767a"
+    },
+    {
       "path": "public/brand/README.md",
       "sha256": "3c9c833f2951ffbccd3e3a150fc49047cab9eb64901b88766cb2310c7ac0e7c0"
     },
@@ -371,6 +400,10 @@
     {
       "path": "scripts/check-docs.py",
       "sha256": "0876b5d9b6454b7cf137386e7490ad2d65321d5513c0746a119549027b9e4b85"
+    },
+    {
+      "path": "scripts/package-plugin.py",
+      "sha256": "fcb7b9ca7ceb9bfa4df34544d9d4bf85d565edb6c1ee1cd4335c29de198b60a5"
     },
     {
       "path": "scripts/test-template.mjs",

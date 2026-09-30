@@ -1,0 +1,32 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "dot-panel",
+  "version": "1.0.0-rc.1",
+  "description": "An AGPL framework and agent skills for creating and maintaining your own private, customizable Dot Panel in ChatGPT Sites.",
+  "author": {"name": "graydeon", "url": "https://github.com/graydeon"},
+  "homepage": "https://github.com/graydeon/dot-panel",
+  "repository": "https://github.com/graydeon/dot-panel",
+  "license": "AGPL-3.0-only",
+  "keywords": ["dashboard", "agent-skills", "private-panel"],
+  "extensions": {
+    "com.openai": {
+      "onboardingSkill": "./skills/setup-dot-panel/SKILL.md",
+      "interface": {
+        "displayName": "Dot Panel",
+        "shortDescription": "Touch dashboard for your dot",
+        "longDescription": "Create and personalize your own private touch dashboard with agent-guided setup and maintenance. Dot Panel includes a Needs You queue for ordinary yes/no and multiple-choice questions, Dismiss and Later controls, project and calendar snapshots, themes, saved layouts and widget authoring skills. Requires supported ChatGPT Sites tools and a user-connected Site plugin; installing this framework does not provision or connect a panel automatically. Feeds use your authorized integrations and show snapshot freshness. Optional automatic Codex usage snapshots require a compatible existing local Codex CLI connection and an owner-launched Python helper; no always-on ChatGPT process or reboot autostart is included. Panel choices cannot bypass platform approval requirements. This release candidate has automated checks and a synthetic current-owner private installation proof, but independent-user, iPad/VoiceOver and public-directory installation have not been verified.",
+        "developerName": "graydeon",
+        "category": "Productivity",
+        "capabilities": ["Read", "Write"],
+        "websiteURL": "https://github.com/graydeon/dot-panel",
+        "supportURL": "https://github.com/graydeon/dot-panel/issues",
+        "privacyPolicyURL": "https://github.com/graydeon/dot-panel/blob/main/docs/privacy.md",
+        "defaultPrompt": ["Set up my private Dot Panel with the modules I choose", "Customize a widget while preserving my saved layouts", "Set up optional local usage tracking for my own panel"],
+        "brandColor": "#C9283A",
+        "brandColorDark": "#F04452",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/icon.png"
+      }
+    }
+  }
+}

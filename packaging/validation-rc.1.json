@@ -1,0 +1,64 @@
+{
+  "version": "1.0.0-rc.1",
+  "framework_commit": "55b19217d08f33c01e18b51609d1685212aa1c67",
+  "zip_sha256": "98d71c533eb171e9c3b89eb7cf04150b1a90fb89f2cda11d29dc25ea79c4b468",
+  "zip_bytes": 330493,
+  "files": 131,
+  "skills": [
+    "setup-dot-panel",
+    "maintain-dot-panel",
+    "create-dot-panel-widget",
+    "edit-dot-panel-widget",
+    "manage-dot-panel-usage"
+  ],
+  "portable_schema_sha256": "0a4aad95ce337878ad38802ebf0daa3fde76abe3f65400c86bcbb1ec0b3ab883",
+  "checks": [
+    "published portable schema",
+    "listing field limits",
+    "regular safe unique ZIP paths",
+    "skill/resource links",
+    "source manifest hashes",
+    "complete template",
+    "helper equality",
+    "square original PNG",
+    "privacy pattern scan"
+  ],
+  "platform_acceptance": "Not tested; package checks do not establish directory acceptance",
+  "reproducibility": "Two independently generated ZIPs byte-identical",
+  "clean_template_checks": {
+    "domain_tests": 38,
+    "widget_assertions": 8,
+    "usage_tracker_tests": 24,
+    "migration_recovery": "7 migrations, 2 synthetic owners, rollback and restore",
+    "runtime": "signing/auth/owner isolation/races/Sites boundary passed",
+    "generic_build": "passed",
+    "sites_build": "passed",
+    "dependency_advisories": 0,
+    "source_hashes_and_docs": "passed",
+    "bundled_helper_cli": "passed"
+  },
+  "native_local_discovery": {
+    "client": "codex-cli 0.147.0",
+    "method": "plugin/read with explicit temporary local marketplace",
+    "skills": [
+      "dot-panel:create-dot-panel-widget",
+      "dot-panel:edit-dot-panel-widget",
+      "dot-panel:maintain-dot-panel",
+      "dot-panel:manage-dot-panel-usage",
+      "dot-panel:setup-dot-panel"
+    ],
+    "localVersion": "1.0.0-rc.1",
+    "installed": false,
+    "personal_plugins_or_config_changed": false,
+    "model_turns": 0,
+    "account_reads": 0
+  },
+  "remaining": [
+    "Portal selected verified developer identity and publisher reconciliation",
+    "Portal ZIP metadata/skill scans and skills-only listing eligibility",
+    "Exact-package installed fresh-user workflow",
+    "Independent-user setup and optional local tracker authenticated destination",
+    "Real iPad/VoiceOver checks",
+    "Hosted identity-header probes/recovery and longer pilot evidence"
+  ]
+}

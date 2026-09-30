@@ -1,0 +1,42 @@
+name: Plugin package checks
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 -m pip install 'jsonschema==4.26.0'
+      - name: Build and validate exact portable candidate
+        run: |
+          python3 scripts/package-plugin.py --output "$RUNNER_TEMP/dot-panel-package" --extract "$RUNNER_TEMP/dot-panel-package/extracted"
+          python3 scripts/package-plugin.py --output "$RUNNER_TEMP/dot-panel-package/repro"
+          cmp "$RUNNER_TEMP/dot-panel-package/dot-panel-1.0.0-rc.1.zip" "$RUNNER_TEMP/dot-panel-package/repro/dot-panel-1.0.0-rc.1.zip"
+      - name: Clean checks from bundled retained source
+        working-directory: ${{ runner.temp }}/dot-panel-package/extracted/assets/framework
+        run: |
+          npm ci
+          npm audit --audit-level=moderate
+          npm test
+          npm run test:template
+          npm run test:recovery
+          npm run test:usage
+          npm run test:runtime
+          npm run build
+          npm run build:sites
+          python3 scripts/check-docs.py
+          python3 scripts/usage-tracker.py --help
