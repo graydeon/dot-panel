@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Synthetic identities only. This is not a production authenticator or live-user proof.
-import {Miniflare} from 'miniflare';
+import {Miniflare,convertV4MiniflareOptions} from 'miniflare';
 import {build} from 'esbuild';
 import {readdir, readFile} from 'node:fs/promises';
 const authenticator = `export default {async fetch(request) {
@@ -21,7 +21,7 @@ const authenticator = `export default {async fetch(request) {
 }};`;
 export async function runtimeFixture({auth=true, local=false,sites=false}={}) {
  const bundled=await build({entryPoints:[sites?'worker/sites.ts':'worker/index.ts'],bundle:true,platform:'neutral',format:'esm',external:['cloudflare:workers'],write:false});
- const mf=new Miniflare({workers:[{name:'panel',modules:true,script:bundled.outputFiles[0].text,compatibilityDate:'2026-05-15',compatibilityFlags:['nodejs_compat'],d1Databases:['DB'],bindings:local?{LOCAL_DEV_MODE:'true',LOCAL_DEV_USER:'fixture-local'}:{},...(!sites&&auth?{serviceBindings:{AUTHENTICATOR:'auth'}}:{})}, {name:'auth',modules:true,script:authenticator,compatibilityDate:'2026-05-15'}]});
+ const mf=new Miniflare(convertV4MiniflareOptions({workers:[{name:'panel',modules:true,script:bundled.outputFiles[0].text,compatibilityDate:'2026-05-15',compatibilityFlags:['nodejs_compat'],d1Databases:['DB'],bindings:local?{LOCAL_DEV_MODE:'true',LOCAL_DEV_USER:'fixture-local'}:{},...(!sites&&auth?{serviceBindings:{AUTHENTICATOR:'auth'}}:{})}, {name:'auth',modules:true,script:authenticator,compatibilityDate:'2026-05-15'}]}));
  const db=await mf.getD1Database('DB','panel');
  for(const file of (await readdir('drizzle')).filter(name=>name.endsWith('.sql')).sort()) {
   const sql=await readFile(`drizzle/${file}`,'utf8');

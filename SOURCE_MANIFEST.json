@@ -14,7 +14,9 @@
     "sites_template_build": "passed_local_live_deployment_unverified",
     "synthetic_runtime_owner_and_race_tests": "passed_100_questions",
     "synthetic_migration_recovery": "passed_7_migrations_2_owners",
-    "production_dependency_advisories": 0
+    "production_dependency_advisories": 0,
+    "full_dependency_advisories": 0,
+    "clean_install_and_migration_generation": "passed"
   },
   "files": [
     {
@@ -27,7 +29,7 @@
     },
     {
       "path": ".github/workflows/ci.yml",
-      "sha256": "6c1e422a8ba1d053996b59469e3f6526cf44155929a1204370c995d13b86ef2a"
+      "sha256": "e30cf7f663bd1d6c9048fba46ac02bf3cf2eb7fde5ac689914e236aa9a280508"
     },
     {
       "path": ".github/workflows/docs.yml",
@@ -43,7 +45,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "893cea6c49ae4ae8a3f9caa01e20ce67a59d7836e03dd94265c1c29e65f04900"
+      "sha256": "721215fafd457ab6e8c8a7b944842bbb24e222ba01b17c3c3f26fadba816c69e"
     },
     {
       "path": "SECURITY.md",
@@ -71,7 +73,7 @@
     },
     {
       "path": "agent-skills/setup-dot-panel/SKILL.md",
-      "sha256": "1026167568b0210a397ed096951ad5d4f0d4056db75e9801c873681f988a28e8"
+      "sha256": "b72e99102e54d875e116b1581fbf47ef58c74da3fc4bc62d6ebfacec9952a694"
     },
     {
       "path": "agent-skills/template/manifest.ts",
@@ -99,7 +101,7 @@
     },
     {
       "path": "docs/agent-setup-protocol.md",
-      "sha256": "1d44ab5e4a0efa822c731ffb6bc69ba4f8cc7bb77ddace5b43ff3772798d108f"
+      "sha256": "7f15dbe12c91ced35e700950a3a545cc764f97d58c90fcbee0ce3cdcaf3859b6"
     },
     {
       "path": "docs/assets/header.svg",
@@ -119,7 +121,7 @@
     },
     {
       "path": "docs/v1-readiness.md",
-      "sha256": "fdfd99493ec43d1266537daa76eb57cb4077cd5286b3df72f9573d242f991cae"
+      "sha256": "9f5cacf9e96f42649bd7f5af0ab62b62a93245a1293367acbc078ab97b1e04bc"
     },
     {
       "path": "drizzle.config.ts",
@@ -267,11 +269,11 @@
     },
     {
       "path": "package-lock.json",
-      "sha256": "a9440cc863cf7f213d5d213ecbc5c1b51f7d61f8d4f0438f3b597e6204822946"
+      "sha256": "0c957b066e2e596ec9e12a7da134ec69e350ea76bf82a2bb6db7ebe1b43f8433"
     },
     {
       "path": "package.json",
-      "sha256": "a449f7158ba3b80984f735fcfc44d1de3e64eee9547d1c872d8c26cff75b75d6"
+      "sha256": "d3067fbb264b42c1f77f672043492ab63d431817462a9ed759ac2dc32bd07172"
     },
     {
       "path": "public/brand/README.md",
@@ -411,7 +413,7 @@
     },
     {
       "path": "tests/runtime-crypto.mjs",
-      "sha256": "9e8ef5eb7a686ec9a62cc7852330ef006ef9bf9dc97220ab7e6e72188916bd19"
+      "sha256": "0964b757803f51d95a0eac03fb2bd741c2082cff7791cf363d96425c0904e482"
     },
     {
       "path": "tests/runtime-crypto.ts",
@@ -419,7 +421,7 @@
     },
     {
       "path": "tests/runtime-fixture.mjs",
-      "sha256": "0710428279460aff41fa65482218a8e02e3c61e21310dadc2c03825215e63df2"
+      "sha256": "380668f4fc2973d16b5abc10d93b81cb8e518cb41322c3d7866be4f7a16b3da6"
     },
     {
       "path": "tests/runtime-isolation.mjs",

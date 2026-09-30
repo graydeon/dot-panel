@@ -17,6 +17,8 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
+      - name: Dependency advisory check
+        run: npm audit --audit-level=moderate
       - name: Domain regression tests
         run: npm test
       - name: Widget starter contract

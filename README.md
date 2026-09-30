@@ -128,7 +128,7 @@ Layout writes use the authenticated same-origin `/api/layout` endpoint with layo
 
 ## Beta boundaries
 
-- **Bring your deployment:** your own D1 database and a trusted `AUTHENTICATOR` service binding are required. Unconfigured data endpoints fail closed.
+- **Your own private Site:** the setup skill uses available Sites tooling and managed sign-in. Only optional independently hosted Worker deployments require a separate trusted `AUTHENTICATOR`; local fixture identities must never be hosted.
 - **Bring authorized sources:** calendar, project and usage feeds need authorized integrations or a helper to write snapshots. The usage helper is not universally built in to every assistant environment.
 - **Snapshots have limits:** observation timestamps and calendar coverage describe saved data; they do not promise live account access.
 - **Delivery is asynchronous:** callback receipt and assistant acknowledgement are separate. Bounded, request-driven retries do not guarantee delivery while the panel is closed.
