@@ -4,7 +4,7 @@
   "source_only": true,
   "checks": {
     "typescript_and_vite_build": "passed",
-    "unit_and_database_tests": 33,
+    "unit_and_database_tests": 34,
     "workers_signing_request_test": "passed",
     "workers_anonymous_and_forged_identity_test": "passed",
     "widget_skill_validators": "passed",
@@ -30,7 +30,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "1a9ca61b1ba581780afd8f2864545fb809e230482c5465facbf8e308848e19d5"
+      "sha256": "b857f098e58c424f0f0874cfaba336a4ff1c8851c94d5161be046cf32ee5a40a"
     },
     {
       "path": "SECURITY.md",
@@ -79,6 +79,10 @@
     {
       "path": "docs/agent-setup-protocol.md",
       "sha256": "4e863c87ffa9ca7364d27154de70f66e2026eb9afcc46c55d590966b5bd0313c"
+    },
+    {
+      "path": "docs/plugin-branding.md",
+      "sha256": "93ac771e9fa8e762f857bc41bb585d7b5cf48d7213a1f4139c2fb7ff1424ca47"
     },
     {
       "path": "drizzle/0000_aberrant_imperial_guard.sql",
@@ -146,7 +150,11 @@
     },
     {
       "path": "index.html",
-      "sha256": "7627baa919560f7f666546ec0790dc568472a385f5ebc07fb876ee0d5e17b63d"
+      "sha256": "18f44fbfbc0f4099e85beb6f4467e5ec29c9cdde6f34195ee108d0a62777eb34"
+    },
+    {
+      "path": "lib/brand.ts",
+      "sha256": "c7bd45db1a4785176a310b1383405f3341ec06068a870a190ffab62fa560a8b6"
     },
     {
       "path": "lib/briefing-link.ts",
@@ -178,7 +186,7 @@
     },
     {
       "path": "lib/mcp.ts",
-      "sha256": "2c03f74dfec52a2dce3568d84f4f8ab0a61972e3d10d20e792bfd4fdfb5bee37"
+      "sha256": "7cf8cc17282489c92ead16dede03005c648d53cd8d3bad476931b45d78074ccc"
     },
     {
       "path": "lib/owner-settings.ts",
@@ -350,7 +358,7 @@
     },
     {
       "path": "tests/verify.ts",
-      "sha256": "76e23a81745ea47b696f338d5b8c565170f0ccb87214c33f10af5ec2c306a986"
+      "sha256": "2c76f257ee3a540feeeadd0875319b36a9aaad29f24dd9b120f1b32b9c1207bd"
     },
     {
       "path": "tsconfig.json",

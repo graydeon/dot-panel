@@ -110,3 +110,7 @@ See [SECURITY.md](SECURITY.md), [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)
 Copyright (C) 2026 Dot Panel contributors.
 
 Dot Panel application code and original brand assets are licensed under **GNU AGPL version 3 only** (`AGPL-3.0-only`). See the complete [LICENSE](LICENSE). Dependencies retain their own licenses. For modified network-hosted versions, review the AGPL's corresponding-source obligations, including section 13.
+
+## Plugin branding
+
+See [catalog copy, icon and connection/setup guidance](docs/plugin-branding.md). MCP metadata and tool titles are application-controlled; catalog listing fields may require a separate supported platform editor.

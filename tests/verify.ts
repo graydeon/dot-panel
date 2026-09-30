@@ -1,4 +1,3 @@
-// SPDX-License-Identifier: AGPL-3.0-only
 import assert from 'node:assert/strict';
 import {DatabaseSync} from 'node:sqlite';
 import {readFileSync,readdirSync} from 'node:fs';
@@ -22,6 +21,7 @@ const sql=new DatabaseSync(':memory:');for(const f of readdirSync('drizzle').fil
 class Statement{args:any[]=[];constructor(readonly query:string){}bind(...args:any[]){this.args=args;return this;}async first(){return sql.prepare(this.query).get(...this.args)??null;}async all(){return {results:sql.prepare(this.query).all(...this.args)};}async run(){const r=sql.prepare(this.query).run(...this.args);return {meta:{changes:Number(r.changes)}};}}
 const db:any={prepare:(q:string)=>new Statement(q),batch:async(stmts:Statement[])=>{sql.exec('BEGIN');try{const values=[];for(const s of stmts)values.push(await s.run());sql.exec('COMMIT');return values;}catch(e){sql.exec('ROLLBACK');throw e;}}};(globalThis as any).__testDB=db;
 const tests:string[]=[];function pass(s:string){tests.push(s);}
+const branded=await (await mcp(new Request('https://fixture.example/mcp',{method:'POST',body:JSON.stringify({jsonrpc:'2.0',id:1,method:'initialize',params:{}})}))).json() as any;assert.equal(branded.result.serverInfo.title,'Dot Panel');assert.match(branded.result.serverInfo.icons[0].src,/^data:image\/png;base64,/);assert.match(branded.result.instructions,/preserved/);pass('MCP branding and safe setup guidance are discoverable without owner data');
 const owner='fixture-owner';await seed(db,owner);const q=(await current(db,owner))!;assert.equal(JSON.parse(q.choices).length,3);pass('First-use seed has exactly three choices');
 const key=Buffer.alloc(32,7),secret='whsec_'+key.toString('base64');assert.equal(await signature(secret,'e','123','{}'),'v1,'+createHmac('sha256',key).update('e.123.{}').digest('base64'));pass('Standard Webhooks HMAC matches independent Node crypto');
 for(const url of ['http://chatgpt.com/cb','https://127.0.0.1/x','https://chatgpt.com.evil.test/x','https://user@chatgpt.com/x','https://chatgpt.com:444/x','https://[::1]/x'])assert.throws(()=>validCallback(url));assert.equal(validCallback('https://connectors.api.openai.com/fixture-callback'),'https://connectors.api.openai.com/fixture-callback');assert.throws(()=>validCallback('https://connectors.api.openai.com.evil.test/fixture'));assert.throws(()=>secretBytes('whsec_YQ=='));assert.equal(constantEqual('x','xx'),false);pass('Unsafe callbacks and invalid secrets rejected');
