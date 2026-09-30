@@ -1,8 +1,8 @@
 {
   "version": "1.0.0-rc.1",
   "framework_commit": "55b19217d08f33c01e18b51609d1685212aa1c67",
-  "zip_sha256": "98d71c533eb171e9c3b89eb7cf04150b1a90fb89f2cda11d29dc25ea79c4b468",
-  "zip_bytes": 330493,
+  "zip_sha256": "b63523c67dd5b2abea354e42fa4291b307e8c761ccc1988049b56f710758bb4b",
+  "zip_bytes": 329747,
   "files": 131,
   "skills": [
     "setup-dot-panel",
@@ -60,5 +60,16 @@
     "Independent-user setup and optional local tracker authenticated destination",
     "Real iPad/VoiceOver checks",
     "Hosted identity-header probes/recovery and longer pilot evidence"
-  ]
+  ],
+  "about_description_update": {
+    "exact_text": "Dot Panel gives your dot a private, customizable dashboard for project updates, calendar events, usage tracking, and questions you can answer with a tap. Your dot guides setup and helps you create widgets and layouts that fit how you work.",
+    "changed_zip_entries": [
+      ".codex-plugin/plugin.json",
+      "PACKAGE_CONTENTS.json",
+      "plugin.json"
+    ],
+    "all_other_entries_byte_identical": true,
+    "prior_zip_sha256": "98d71c533eb171e9c3b89eb7cf04150b1a90fb89f2cda11d29dc25ea79c4b468",
+    "prior_runtime_checks_reused": "Retained template, skills, helper and assets byte-identical; no runtime edits"
+  }
 }

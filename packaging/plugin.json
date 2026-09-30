@@ -14,7 +14,7 @@
       "interface": {
         "displayName": "Dot Panel",
         "shortDescription": "Touch dashboard for your dot",
-        "longDescription": "Create and personalize your own private touch dashboard with agent-guided setup and maintenance. Dot Panel includes a Needs You queue for ordinary yes/no and multiple-choice questions, Dismiss and Later controls, project and calendar snapshots, themes, saved layouts and widget authoring skills. Requires supported ChatGPT Sites tools and a user-connected Site plugin; installing this framework does not provision or connect a panel automatically. Feeds use your authorized integrations and show snapshot freshness. Optional automatic Codex usage snapshots require a compatible existing local Codex CLI connection and an owner-launched Python helper; no always-on ChatGPT process or reboot autostart is included. Panel choices cannot bypass platform approval requirements. This release candidate has automated checks and a synthetic current-owner private installation proof, but independent-user, iPad/VoiceOver and public-directory installation have not been verified.",
+        "longDescription": "Dot Panel gives your dot a private, customizable dashboard for project updates, calendar events, usage tracking, and questions you can answer with a tap. Your dot guides setup and helps you create widgets and layouts that fit how you work.",
         "developerName": "graydeon",
         "category": "Productivity",
         "capabilities": ["Read", "Write"],
