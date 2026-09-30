@@ -5,6 +5,7 @@
   "checks": {
     "typescript_and_vite_build": "passed",
     "unit_and_database_tests": 34,
+    "dismissal_regression_suite": "passed",
     "workers_signing_request_test": "passed",
     "workers_anonymous_and_forged_identity_test": "passed",
     "widget_skill_validators": "passed",
@@ -30,7 +31,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "b857f098e58c424f0f0874cfaba336a4ff1c8851c94d5161be046cf32ee5a40a"
+      "sha256": "114df4c5592a561427b73c0ef1599b10e148510fa3ed05b9dc3f741b2596648b"
     },
     {
       "path": "SECURITY.md",
@@ -202,7 +203,7 @@
     },
     {
       "path": "lib/question-queue.ts",
-      "sha256": "222011975959e9138b77f7b9216b364f8a3afd1a283a2570956fed4f20308f23"
+      "sha256": "505100976fac396dd00bb1272fa9200c8b5bb938062eaa2febc2f38df4a7604e"
     },
     {
       "path": "lib/single-flight.ts",
@@ -314,7 +315,7 @@
     },
     {
       "path": "src/Panel.tsx",
-      "sha256": "6e865acf003e4b02fd9db9d10899dcfe8ca5baa4f9260b682ea57fae5c2e17ff"
+      "sha256": "89c043f99e5857baa9e9562362fc7c3dffe27fc5873e59200d263f13991a881a"
     },
     {
       "path": "src/calendar-panel.tsx",
@@ -330,7 +331,7 @@
     },
     {
       "path": "src/styles.css",
-      "sha256": "9f7cf4306cb3ca843b16643d369268dd2041b1352bfa873a9fe4fe18bd3bed72"
+      "sha256": "4cd491479fc0dd235c7aed78481835f1a73aba966205d4a84f37f13daa7d0f1d"
     },
     {
       "path": "src/usage-panel.tsx",
@@ -358,7 +359,7 @@
     },
     {
       "path": "tests/verify.ts",
-      "sha256": "2c76f257ee3a540feeeadd0875319b36a9aaad29f24dd9b120f1b32b9c1207bd"
+      "sha256": "ba07fffad47dc3e46c91dcbc13ac9414bf36b4c3f58ab7e33b34e68a3c86afe3"
     },
     {
       "path": "tsconfig.json",
@@ -374,7 +375,7 @@
     },
     {
       "path": "worker/index.ts",
-      "sha256": "26b8e462dc15a2b2bc2ea2662e7ebf865ce5481c83108e50e5c3a30858aa1aec"
+      "sha256": "b8da6cd2af52c997fe3017b18b94490a17a5f3c78cfb8779b9d3a11c5ee880a5"
     },
     {
       "path": "wrangler.jsonc",

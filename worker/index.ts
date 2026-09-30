@@ -1,3 +1,4 @@
+import {cancelQuestion} from '../lib/question-queue';
 // SPDX-License-Identifier: AGPL-3.0-only
 import {readLayout,writeLayout} from '../lib/layout-store';
 import {readCalendar} from '../lib/calendar-store';
@@ -29,6 +30,7 @@ export default {async fetch(incoming:Request,env:Env):Promise<Response>{
  if(path==='/api/state'&&request.method==='GET')return Response.json(await snapshot(),{headers:{'Cache-Control':'no-store'}});
  if(request.method!=='POST')return new Response('Method not allowed',{status:405});sameOrigin(request);
  if(path==='/api/layout')return Response.json(await writeLayout(db,owner,await request.json()),{headers:{'Cache-Control':'private, no-store'}});
+ if(path==='/api/cancel'){await cancelQuestion(db,owner,await request.json());return Response.json(await snapshot(),{headers:{'Cache-Control':'no-store'}});}
  if(path==='/api/answer'){await saveAnswer(db,owner,await request.json());return Response.json(await snapshot(),{headers:{'Cache-Control':'no-store'}});}
  if(path==='/api/settings')return Response.json(await setDotDisplayName(db,owner,await request.json()),{headers:{'Cache-Control':'no-store'}});
  if(path==='/api/retry')return Response.json(await drain(db,owner),{headers:{'Cache-Control':'no-store'}});

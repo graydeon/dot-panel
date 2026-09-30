@@ -4,7 +4,7 @@ A private, touch-first status panel for an AI assistant. Questions appear only w
 
 ## Features
 
-- Independent Needs You queue with centered touch-answer dialogs, Later, and exact-event history
+- Independent Needs You queue with centered touch-answer dialogs, Later, persistent Dismiss, and exact-event history
 - Owner-reviewed project/source modules with timestamps and honest empty states
 - Saved portrait/landscape widget layouts: edit-only drag/resize, tap controls, swap, templates, paging, Save/Cancel, and previous-layout restore
 - Compact Today and Week widgets opening a Month/Week/Day calendar dialog
