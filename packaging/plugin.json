@@ -1,13 +1,20 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "dot-panel",
-  "version": "1.0.0-rc.1",
+  "version": "1.0.0",
   "description": "An AGPL framework and agent skills for creating and maintaining your own private, customizable Dot Panel in ChatGPT Sites.",
-  "author": {"name": "graydeon", "url": "https://github.com/graydeon"},
+  "author": {
+    "name": "graydeon",
+    "url": "https://github.com/graydeon"
+  },
   "homepage": "https://github.com/graydeon/dot-panel",
   "repository": "https://github.com/graydeon/dot-panel",
   "license": "AGPL-3.0-only",
-  "keywords": ["dashboard", "agent-skills", "private-panel"],
+  "keywords": [
+    "dashboard",
+    "agent-skills",
+    "private-panel"
+  ],
   "extensions": {
     "com.openai": {
       "onboardingSkill": "./skills/setup-dot-panel/SKILL.md",
@@ -17,11 +24,18 @@
         "longDescription": "Dot Panel gives your dot a private, customizable dashboard for project updates, calendar events, usage tracking, and questions you can answer with a tap. Your dot guides setup and helps you create widgets and layouts that fit how you work.",
         "developerName": "graydeon",
         "category": "Productivity",
-        "capabilities": ["Read", "Write"],
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
         "websiteURL": "https://github.com/graydeon/dot-panel",
         "supportURL": "https://github.com/graydeon/dot-panel/issues",
         "privacyPolicyURL": "https://github.com/graydeon/dot-panel/blob/main/docs/privacy.md",
-        "defaultPrompt": ["Set up my private Dot Panel with the modules I choose", "Customize a widget while preserving my saved layouts", "Set up optional local usage tracking for my own panel"],
+        "defaultPrompt": [
+          "Set up my private Dot Panel with the modules I choose",
+          "Customize a widget while preserving my saved layouts",
+          "Set up optional local usage tracking for my own panel"
+        ],
         "brandColor": "#C9283A",
         "brandColorDark": "#F04452",
         "composerIcon": "./assets/icon.png",

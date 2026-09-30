@@ -21,11 +21,11 @@ jobs:
         with:
           python-version: '3.12'
       - run: python3 -m pip install 'jsonschema==4.26.0'
-      - name: Build and validate exact portable candidate
+      - name: Build and validate exact portable package
         run: |
           python3 scripts/package-plugin.py --output "$RUNNER_TEMP/dot-panel-package" --extract "$RUNNER_TEMP/dot-panel-package/extracted"
           python3 scripts/package-plugin.py --output "$RUNNER_TEMP/dot-panel-package/repro"
-          cmp "$RUNNER_TEMP/dot-panel-package/dot-panel-1.0.0-rc.1.zip" "$RUNNER_TEMP/dot-panel-package/repro/dot-panel-1.0.0-rc.1.zip"
+          cmp "$RUNNER_TEMP/dot-panel-package/dot-panel-1.0.0.zip" "$RUNNER_TEMP/dot-panel-package/repro/dot-panel-1.0.0.zip"
       - name: Clean checks from bundled retained source
         working-directory: ${{ runner.temp }}/dot-panel-package/extracted/assets/framework
         run: |

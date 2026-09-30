@@ -39,7 +39,7 @@
     },
     {
       "path": ".github/workflows/package.yml",
-      "sha256": "85673792706443fba8b33e239d73983b482719ead31506f0d752401fad81868c"
+      "sha256": "63d7a6fb19d84bfcc92c4d50f2dd212c080f16956c0cd6fe265b760397a5e785"
     },
     {
       "path": ".gitignore",
@@ -51,7 +51,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "f028bfdf7600a0f45304f3406942ec8ef01ab413045b36d77819e174f66188c1"
+      "sha256": "ff408dbf53932e2773f548a0369a1a9e37143c99f6e06fe160d3b03d2153479c"
     },
     {
       "path": "SECURITY.md",
@@ -127,7 +127,7 @@
     },
     {
       "path": "docs/package-candidate.md",
-      "sha256": "087f916075a4cd7834c158a9c52e4a267606346ffc9c2bf27cca14a25408ad96"
+      "sha256": "e6599e6ff0b99180b72a53b37fc55f6659842196ed10c7c509f126d63a02d0ba"
     },
     {
       "path": "docs/plugin-branding.md",
@@ -299,11 +299,11 @@
     },
     {
       "path": "packaging/INSTALL.md",
-      "sha256": "28cd57156812a5d685fa52e6494e0f7b8007a482584ed1e875b1e824af8367ea"
+      "sha256": "530f5b18e504c3d37ef7a7432fae1cacabd009c694884479768c24305100f7c7"
     },
     {
       "path": "packaging/plugin.json",
-      "sha256": "cda0fed5a5fac0dbea122bd3f1374f3e30fbec5c39599cc7367331c4af0abf28"
+      "sha256": "5f8c063db4771d77f14bfd881547b01c7fa6b8135b1b05504a546892469c8603"
     },
     {
       "path": "packaging/plugin.schema.json",
@@ -311,7 +311,7 @@
     },
     {
       "path": "packaging/validation-rc.1.json",
-      "sha256": "51b68da104591810c2efb31560019a3f6b56550df00324cc141195b8d63f767a"
+      "sha256": "2b59a67a54b66d732207327ec3bbca0aa21eeef26e06a12739115df30ce7e6a0"
     },
     {
       "path": "public/brand/README.md",
@@ -403,7 +403,7 @@
     },
     {
       "path": "scripts/package-plugin.py",
-      "sha256": "fcb7b9ca7ceb9bfa4df34544d9d4bf85d565edb6c1ee1cd4335c29de198b60a5"
+      "sha256": "8323db05298f3b8e21e901a7df359c86dafe0df3db4bdd1d00990185aed4daec"
     },
     {
       "path": "scripts/test-template.mjs",

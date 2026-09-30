@@ -4,12 +4,12 @@
 
 **Projects in view. Decisions within reach.**
 
-[![Beta](https://img.shields.io/badge/release-v0.1.0--beta.1-F04452?style=for-the-badge)](https://github.com/graydeon/dot-panel/releases/tag/v0.1.0-beta.1)
+[![Release](https://img.shields.io/badge/release-v1.0.0-F04452?style=for-the-badge)](https://github.com/graydeon/dot-panel/releases/tag/v1.0.0)
 [![License](https://img.shields.io/badge/license-AGPL--3.0--only-A1A1AA?style=for-the-badge)](LICENSE)
 [![App checks](https://github.com/graydeon/dot-panel/actions/workflows/ci.yml/badge.svg)](https://github.com/graydeon/dot-panel/actions/workflows/ci.yml)
 [![Docs checks](https://github.com/graydeon/dot-panel/actions/workflows/docs.yml/badge.svg)](https://github.com/graydeon/dot-panel/actions/workflows/docs.yml)
 
-[↓ **Get the beta**](https://github.com/graydeon/dot-panel/releases/tag/v0.1.0-beta.1) · [⚙ **Setup**](docs/agent-setup-protocol.md) · [▦ **Widget skills**](agent-skills/README.md) · [⌘ **Source**](https://github.com/graydeon/dot-panel) · [♡ **Security**](SECURITY.md)
+[↓ **Get v1.0.0**](https://github.com/graydeon/dot-panel/releases/tag/v1.0.0) · [⚙ **Setup**](docs/agent-setup-protocol.md) · [▦ **Widget skills**](agent-skills/README.md) · [⌘ **Source**](https://github.com/graydeon/dot-panel) · [♡ **Security**](SECURITY.md)
 
 </div>
 
@@ -17,7 +17,7 @@
 
 A free, AGPL framework for your dot to create and personalize its own private touch dashboard in ChatGPT Sites, optionally linked in Spaces. Bundled setup, maintenance and widget skills guide the work; each owner keeps their own panel. Questions appear only while pending. Once an answer is saved, the panel returns to project status. The assistant's name is an owner setting; Dot Panel is the product name.
 
-> **Early beta:** reusable source is public; the existing hosted panel stays private. Fresh-user installation and end-to-end setup with a new owner's data have not been independently validated. Public catalog distribution is unverified. There is no universal one-click plugin install link.
+> **GitHub v1.0.0:** the free framework is public; OpenAI review remains pending; the existing hosted panel stays private. Fresh-user installation and end-to-end setup with a new owner's data have not been independently validated. Public catalog distribution is unverified. There is no universal one-click plugin install link.
 
 ## In the panel
 
@@ -55,7 +55,7 @@ See the [v1 readiness ledger](docs/v1-readiness.md) for verified checks and rema
 
 Start with [Framework installation](docs/framework-installation.md). Your dot needs the supported Sites tools and a workspace that can build the source. It creates a new private Site using the sanitized template, reuses Sites-managed sign-in and connects the private Site plugin provisioned for you. A one-time Install/Connect step and authorized answer-event subscription may need your action. No developer-operated service, subscription or external login provider is required by this architecture.
 
-The public installer package is still being verified; do not treat the beta source archive as an installable plugin. Skills guide available tools; they cannot create missing capabilities or bypass your account policy.
+Download the skills framework ZIP from the GitHub release; the GitHub source archive is not an installable plugin. Skills guide available tools; they cannot create missing capabilities or bypass your account policy.
 
 ## Quickstart · local development
 
@@ -156,4 +156,4 @@ See [catalog copy, icon and connection/setup guidance](docs/plugin-branding.md).
 
 Bundle-ready [local usage tracker and setup guide](docs/usage-tracker.md) supports an existing ChatGPT-authenticated Codex CLI and explicitly connected private panel. It runs only on the owner’s computer with permission; installing a skill does not start an always-on process. The [management skill](agent-skills/manage-dot-panel-usage/SKILL.md) covers setup, status, stopping and removal. Missing local tooling leaves usage optional/manual.
 
-The [skills framework release candidate](docs/package-candidate.md) includes portable package tooling and exact-bundle evidence. It remains a candidate awaiting installed-user and platform validation.
+The [skills framework package](docs/package-candidate.md) includes portable package tooling and exact-bundle evidence. OpenAI review, independent-user installation and real-device validation remain separate from GitHub publication.

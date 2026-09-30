@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build/validate a deterministic skills-based Dot Panel RC; never install or publish."""
+"""Build/validate a deterministic skills-based Dot Panel plugin; never install or publish."""
 import argparse
 import hashlib
 import io
@@ -89,7 +89,7 @@ def validate(path, extract=None):
             payload[item.filename]=archive.read(item)
     m=json.loads(payload['plugin.json']);schema=json.loads((ROOT/'packaging/plugin.schema.json').read_text())
     jsonschema.Draft202012Validator(schema).validate(m)
-    assert m['name']=='dot-panel' and re.fullmatch(r'\d+\.\d+\.\d+-rc\.\d+',m['version'])
+    assert m['name']=='dot-panel' and re.fullmatch(r'\d+\.\d+\.\d+(?:-rc\.\d+)?',m['version'])
     assert m['license']=='AGPL-3.0-only'
     interface=m['extensions']['com.openai']['interface']
     for key,limit in {'displayName':30,'shortDescription':30,'longDescription':4000,'developerName':80}.items():

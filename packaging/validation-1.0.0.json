@@ -1,0 +1,33 @@
+{
+  "version": "1.0.0",
+  "framework_commit": "55b19217d08f33c01e18b51609d1685212aa1c67",
+  "zip_sha256": "13fd7229db4bffe35bb9b8d9e14f31be4950e3804851020057b1f2e43a1477c0",
+  "zip_bytes": 329752,
+  "files": 131,
+  "skills": [
+    "setup-dot-panel",
+    "maintain-dot-panel",
+    "create-dot-panel-widget",
+    "edit-dot-panel-widget",
+    "manage-dot-panel-usage"
+  ],
+  "portable_schema_sha256": "0a4aad95ce337878ad38802ebf0daa3fde76abe3f65400c86bcbb1ec0b3ab883",
+  "checks": [
+    "published portable schema",
+    "listing field limits",
+    "regular safe unique ZIP paths",
+    "skill/resource links",
+    "source manifest hashes",
+    "complete template",
+    "helper equality",
+    "square original PNG",
+    "privacy pattern scan"
+  ],
+  "platform_acceptance": "Not tested; package checks do not establish directory acceptance",
+  "reproducibility": "Two rebuilt ZIPs byte-identical",
+  "changes_from_rc": "Version metadata and installation guidance only; retained source, skills, helper and assets byte-identical",
+  "remaining_validation": [
+    "OpenAI directory approval pending",
+    "Independent-user and real iPad/VoiceOver validation not claimed"
+  ]
+}
